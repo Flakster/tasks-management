@@ -38,7 +38,7 @@ functions:
           path: /task/{id}
           method: put
   DeleteTask:
-    handler: src/deteleTask.deleteTask
+    handler: src/deleteTask.deleteTask
     events:
       - httpApi:
           path: src/task/{id}
