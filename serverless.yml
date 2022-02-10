@@ -19,6 +19,18 @@ functions:
       - httpApi:
           path: /tasks
           method: post
+  RetrieveTasks:
+    handler: src/getTasks.getTasks
+    events:
+      - httpApi:
+          path: /tasks
+          method: get
+  RetrieveTask:
+    handler: src/getTask.getTask
+    events:
+      - httpApi:
+          path: /task/{id}
+          method: get
 resources:
   Resources:
     task:
