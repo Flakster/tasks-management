@@ -11,7 +11,8 @@ const addTask = async (event) => {
     description,
     hours,
     stack,
-    role
+    role,
+    done: false
   }
   await dynamodb.put({
     TableName: "task",
