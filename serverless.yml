@@ -43,6 +43,12 @@ functions:
       - httpApi:
           path: /task/{id}
           method: delete
+  ListTasks:
+    handler: src/listTasks.listTasks
+    events:
+      - httpApi:
+          path: /tasks/list
+          method: get
 resources:
   Resources:
     task:
