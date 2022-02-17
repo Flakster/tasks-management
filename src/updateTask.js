@@ -4,7 +4,7 @@ const updateTask = async (event) => {
   const dynamodb = new AWS.DynamoDB.DocumentClient({region:'us-east-1'})
   const {id} = event.pathParameters;
   const {done, newJoinerId} = JSON.parse(event.body)
-  await dynamodb.update({
+  const params = {
     TableName: "task",
     Key: {
       id
@@ -14,7 +14,13 @@ const updateTask = async (event) => {
       ":done": done,
       ":newJoinerId": newJoinerId
     },
-    ReturnValues: 'ALL_NEW'
+  }
+  await dynamodb.update(params, function (err, data){
+    if (err){
+      console.log(err)
+    }else {
+      console.log(data);
+    }
   }).promise()
 
   return {
