@@ -4,7 +4,7 @@ const listTasks = async (event) => {
 
   const result = await dynamodb.scan({
     TableName: "task",
-    AttributesToGet: ["name", "description", "hours", "stack", "role", "done", "newJoinerId", "parentTaskId"]
+    AttributesToGet: ["id", "name", "description", "hours", "stack", "role", "done", "newJoinerId", "parentTaskId"]
   }).promise();
 
   const tasks = result.Items;
