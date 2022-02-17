@@ -7,11 +7,11 @@ const getTasks = async (event) => {
     AttributesToGet: ["id"]
   }).promise();  
 
-  const tasks = result.Items;
-  return {
-    status: 200,
-    body: {tasks}
-  }
+  const tasks = result.Items.map(function(e){
+    return e.id
+  });
+
+  return tasks
 }
 
 module.exports = {
